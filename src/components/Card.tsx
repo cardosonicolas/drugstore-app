@@ -5,7 +5,7 @@ export default function Card({ product }: { product: any }) {
         <img
           src={product.image}
           alt="Product"
-          className="h-80 w-72 object-cover rounded-t-xl"
+          className="h-40 w-72 object-cover rounded-t-xl"
         />
         <div className="px-4 py-3 w-72">
           <p className="text-lg font-bold text-black truncate block capitalize">
@@ -15,7 +15,6 @@ export default function Card({ product }: { product: any }) {
             <p className="text-lg font-semibold text-black cursor-auto my-3">
               ${product.price}
             </p>
-            <del></del>
             <div className="ml-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

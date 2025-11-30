@@ -23,6 +23,27 @@ const products = [
     image:
       "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
+  {
+    id: 4,
+    name: "Product 4",
+    price: 40,
+    image:
+      "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 5,
+    name: "Product 5",
+    price: 50,
+    image:
+      "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 6,
+    name: "Product 6",
+    price: 60,
+    image:
+      "https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
 ];
 
 export default function Home() {
@@ -32,7 +53,7 @@ export default function Home() {
       <main className="flex w-full max-w-7xl flex-col items-center justify-between py-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1>Drugstore App</h1>
-          <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
+          <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-5 gap-x-5 mt-10 mb-5">
             {products.map((product) => (
               <Card key={product.id} product={product} />
             ))}
