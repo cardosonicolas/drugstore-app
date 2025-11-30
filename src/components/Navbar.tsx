@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { categories } from "@/data/seeds";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,37 +22,22 @@ export default function Navbar() {
 
         {/* Center: Categories (Desktop) */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link
-            href="#"
-            className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-          >
-            Medicines
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-          >
-            Vitamins
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-          >
-            Personal Care
-          </Link>
-          <Link
-            href="#"
-            className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-          >
-            Deals
-          </Link>
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/category/${category.id}`}
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
+            >
+              {category.name}
+            </Link>
+          ))}
         </div>
 
         {/* Right: Cart & Mobile Menu Button */}
         <div className="flex items-center gap-4">
           <button className="group relative p-2 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors">
             <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
-              2
+              5
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -116,34 +102,16 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
           <div className="flex flex-col space-y-4 px-4 py-6">
-            <Link
-              href="#"
-              className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Medicines
-            </Link>
-            <Link
-              href="#"
-              className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Vitamins
-            </Link>
-            <Link
-              href="#"
-              className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Personal Care
-            </Link>
-            <Link
-              href="#"
-              className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Deals
-            </Link>
+            {categories.map((category) => (
+              <Link
+                key={category.id}
+                href={`/category/${category.id}`}
+                className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {category.name}
+              </Link>
+            ))}
           </div>
         </div>
       )}
