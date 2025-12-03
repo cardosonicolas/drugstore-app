@@ -4,19 +4,18 @@ import Link from "next/link";
 import { useState } from "react";
 import { categories } from "@/data/seeds";
 
+import Image from "next/image";
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80">
+    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Logo */}
         <div className="flex items-center">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-zinc-900 dark:text-white"
-          >
-            Drugstore
+          <Link href="/" className="text-2xl font-bold text-zinc-900">
+            <Image src="/test.svg" width={60} height={60} alt="Logo" />
           </Link>
         </div>
 
@@ -26,7 +25,7 @@ export default function Navbar() {
             <Link
               key={category.id}
               href={`/category/${category.id}`}
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
             >
               {category.name}
             </Link>
@@ -35,7 +34,7 @@ export default function Navbar() {
 
         {/* Right: Cart & Mobile Menu Button */}
         <div className="flex items-center gap-4">
-          <button className="group relative p-2 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors">
+          <button className="group relative p-2 text-zinc-700 hover:text-zinc-900 transition-colors">
             <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
               5
             </div>
@@ -59,7 +58,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white"
+            className="md:hidden p-2 text-zinc-700 hover:text-zinc-900"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -100,13 +99,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+        <div className="md:hidden border-t border-zinc-200 bg-white">
           <div className="flex flex-col space-y-4 px-4 py-6">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 href={`/category/${category.id}`}
-                className="text-base font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
+                className="text-base font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {category.name}
