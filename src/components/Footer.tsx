@@ -1,3 +1,5 @@
+const cellNumer = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+
 export default function Footer() {
   return (
     <footer className="w-full bg-white border-t border-zinc-100 py-12 mt-auto">
@@ -75,6 +77,12 @@ export default function Footer() {
                 <p className="text-zinc-500 text-sm">Almirante Brown 1195</p>
                 <p className="text-zinc-400 text-[10px]">9:00am - 04:00am</p>
               </div>
+              <div>
+                <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
+                  El Paracao 3
+                </h4>
+                <p className="text-zinc-500 text-sm">Proximamente</p>
+              </div>
             </div>
           </div>
 
@@ -84,7 +92,9 @@ export default function Footer() {
               Contacto
             </h3>
             <a
-              href="#"
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=Hola%20vengo%20desde%20su%20web!`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full transition-all duration-300 font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               <svg
