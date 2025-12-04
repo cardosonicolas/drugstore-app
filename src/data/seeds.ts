@@ -15,6 +15,7 @@ export const products = [
     price: 1500,
     categoryId: 1,
     image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=60",
+    bannerImage: "https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const products = [
     price: 1000,
     categoryId: 1,
     image: "https://images.unsplash.com/photo-1560023907-5f339617ea30?auto=format&fit=crop&w=500&q=60",
+    bannerImage: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ export const products = [
     price: 2000,
     categoryId: 1,
     image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=500&q=60",
+    bannerImage: "https://images.unsplash.com/photo-1618183000911-09eb3b315a2a?auto=format&fit=crop&w=1200&q=80",
   },
 
   // Chocolates
@@ -38,6 +41,7 @@ export const products = [
     price: 1200,
     categoryId: 2,
     image: "https://images.unsplash.com/photo-1511381978503-e96b560a051d?auto=format&fit=crop&w=500&q=60",
+    bannerImage: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: 5,
@@ -45,6 +49,7 @@ export const products = [
     price: 800,
     categoryId: 2,
     image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
+    bannerImage: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=1200&q=80",
   },
 
   // Snacks
