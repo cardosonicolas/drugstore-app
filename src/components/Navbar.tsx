@@ -1,39 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+
 import { categories } from "@/data/seeds";
 
 import Image from "next/image";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white shadow-sm">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
         {/* Left: Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center shrink-0">
           <Link href="/" className="text-2xl font-bold text-zinc-900">
             <Image src="/test.svg" width={60} height={60} alt="Logo" />
           </Link>
         </div>
 
-        {/* Center: Categories (Desktop) */}
-        <div className="hidden md:flex items-center space-x-8">
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/category/${category.id}`}
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-            >
-              {category.name}
-            </Link>
-          ))}
+        {/* Center: Search Bar */}
+        <div className="flex flex-1 max-w-2xl mx-4">
+          <div className="relative w-full">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg
+                className="h-5 w-5 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-full leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="Buscar productos"
+            />
+          </div>
         </div>
 
-        {/* Right: Cart & Mobile Menu Button */}
-        <div className="flex items-center gap-4">
+        {/* Right: Cart */}
+        <div className="flex items-center gap-4 shrink-0">
           <button className="group relative p-2 text-zinc-700 hover:text-zinc-900 transition-colors">
             <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
               5
@@ -55,65 +66,25 @@ export default function Navbar() {
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
           </button>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-zinc-700 hover:text-zinc-900"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            )}
-          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-zinc-200 bg-white">
-          <div className="flex flex-col space-y-4 px-4 py-6">
+      {/* Bottom: Categories (Scrollable) */}
+      <div className="w-full border-t border-zinc-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center overflow-x-auto py-3 no-scrollbar gap-3">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 href={`/category/${category.id}`}
-                className="text-base font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                className="text-sm font-medium text-white hover:text-zinc-900 transition-colors whitespace-nowrap bg-[#272E41] px-4 py-2 rounded-full shrink-0"
               >
                 {category.name}
               </Link>
             ))}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
