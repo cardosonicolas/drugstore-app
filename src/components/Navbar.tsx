@@ -68,23 +68,6 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Bottom: Categories (Scrollable) */}
-      <div className="w-full border-t border-zinc-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center overflow-x-auto py-3 no-scrollbar gap-3">
-            {categories.map((category) => (
-              <Link
-                key={category.id}
-                href={`/category/${category.id}`}
-                className="text-sm font-medium text-white hover:text-zinc-900 transition-colors whitespace-nowrap bg-[#272E41] px-4 py-2 rounded-full shrink-0"
-              >
-                {category.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
     </nav>
   );
 }
