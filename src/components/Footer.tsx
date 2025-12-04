@@ -65,7 +65,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div>
                 <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
-                  El Paracao 1
+                  El Paracao
                 </h4>
                 <p className="text-zinc-500 text-sm">
                   Av. de las Américas 3196
