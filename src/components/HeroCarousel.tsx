@@ -60,17 +60,14 @@ export default function HeroCarousel({ products }: HeroCarouselProps) {
           className="w-full h-full bg-center bg-cover duration-500 transition-all ease-in-out"
         >
           {/* Overlay Gradient for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-center lg:justify-end p-6 md:p-8 lg:p-6">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-center lg:justify-end p-6 mt-10 md:p-8 lg:p-6">
             <div className="max-w-7xl mx-auto w-full">
               <span className="inline-block px-2 py-0.5 mb-1 text-[10px] md:text-xs font-semibold tracking-wider text-white uppercase bg-blue-600 rounded-full w-fit">
                 Nuevo Ingreso
               </span>
-              <h2 className="text-xl md:text-2xl lg:text-2xl font-bold text-white mb-1 drop-shadow-lg">
+              <h2 className="text-xl md:text-2xl lg:text-2xl font-bold text-white drop-shadow-lg">
                 {products[currentIndex].name}
               </h2>
-              <p className="text-base md:text-lg text-white/90 font-medium drop-shadow-md">
-                ${products[currentIndex].price}
-              </p>
             </div>
           </div>
         </div>
