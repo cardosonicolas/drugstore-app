@@ -67,7 +67,9 @@ export default function Footer() {
                 <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
                   El Paracao 1
                 </h4>
-                <p className="text-zinc-500 text-sm">Av de las Americas 3196</p>
+                <p className="text-zinc-500 text-sm">
+                  Av. de las Américas 3196
+                </p>
                 <p className="text-zinc-400 text-[10px]">9:00am - 04:00am</p>
               </div>
               <div>
