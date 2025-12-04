@@ -77,12 +77,6 @@ export default function Footer() {
                 <p className="text-zinc-500 text-sm">Almirante Brown 1195</p>
                 <p className="text-zinc-400 text-[10px]">9:00am - 04:00am</p>
               </div>
-              <div>
-                <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
-                  El Paracao 3
-                </h4>
-                <p className="text-zinc-500 text-sm">Proximamente</p>
-              </div>
             </div>
           </div>
 
