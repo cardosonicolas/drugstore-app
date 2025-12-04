@@ -10,9 +10,10 @@ export default function Footer() {
             </h3>
             <div className="flex space-x-8">
               <a
-                href="#"
+                href="https://www.instagram.com/drugstore_elparacao/"
                 className="text-zinc-400 hover:text-pink-600 transition-colors duration-300"
                 aria-label="Instagram"
+                target="_blank"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -32,9 +33,10 @@ export default function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61565241096755"
                 className="text-zinc-400 hover:text-blue-600 transition-colors duration-300"
                 aria-label="Facebook"
+                target="_blank"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -55,23 +57,23 @@ export default function Footer() {
 
           {/* Column 2: Sucursales */}
           <div className="flex flex-col items-center justify-start px-4 text-center space-y-6">
-            <h3 className="text-xs font-bold text-zinc-900 uppercase tracking-[0.2em] mb-2">
+            <h3 className="text-xs font-bold text-zinc-900 uppercase tracking-[0.2em] mb-4">
               Sucursales
             </h3>
             <div className="space-y-4">
               <div>
                 <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
-                  Centro
+                  El Paracao 1
                 </h4>
-                <p className="text-zinc-500 text-sm">Av. Principal 1234</p>
-                <p className="text-zinc-400 text-[10px]">9:00 - 21:00</p>
+                <p className="text-zinc-500 text-sm">Av de las Americas 3196</p>
+                <p className="text-zinc-400 text-[10px]">9:00am - 04:00am</p>
               </div>
               <div>
                 <h4 className="text-xs font-bold text-zinc-700 uppercase tracking-wider mb-1">
-                  Norte
+                  El Paracao 2
                 </h4>
-                <p className="text-zinc-500 text-sm">Calle Comercial 567</p>
-                <p className="text-zinc-400 text-[10px]">10:00 - 22:00</p>
+                <p className="text-zinc-500 text-sm">Almirante Brown 1195</p>
+                <p className="text-zinc-400 text-[10px]">9:00am - 04:00am</p>
               </div>
             </div>
           </div>
@@ -98,7 +100,7 @@ export default function Footer() {
               >
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
               </svg>
-              Chat WhatsApp
+              Escribinos por WhatsApp
             </a>
           </div>
         </div>
@@ -106,7 +108,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 text-center">
           <p className="text-[10px] text-zinc-300 uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Drugstore App
+            &copy; {new Date().getFullYear()} Drugstore El Paracao
           </p>
         </div>
       </div>
