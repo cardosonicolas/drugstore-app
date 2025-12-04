@@ -1,18 +1,18 @@
 export default function Card({ product }: { product: any }) {
   return (
-    <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div className="w-full bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
       <a href="#">
         <img
           src={product.image}
           alt="Product"
-          className="h-40 w-72 object-cover rounded-t-xl"
+          className="h-32 w-full object-cover rounded-t-xl"
         />
-        <div className="px-4 py-3 w-72">
-          <p className="text-lg font-bold text-black truncate block capitalize">
+        <div className="px-3 py-3 w-full">
+          <p className="text-sm font-bold text-black truncate block capitalize">
             {product.name}
           </p>
           <div className="flex items-center">
-            <p className="text-lg font-semibold text-black cursor-auto my-3">
+            <p className="text-sm font-semibold text-black cursor-auto my-3">
               ${product.price}
             </p>
             <div className="ml-auto">
