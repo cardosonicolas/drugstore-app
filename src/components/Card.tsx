@@ -4,7 +4,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useState } from "react";
 
 export default function Card({ product }: { product: any }) {
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -13,6 +13,10 @@ export default function Card({ product }: { product: any }) {
     setIsAdding(true);
     setTimeout(() => setIsAdding(false), 600);
   };
+
+  // Find quantity of this product in cart
+  const cartItem = cart.find((item) => item.id === product.id);
+  const quantityInCart = cartItem ? cartItem.quantity : 0;
 
   return (
     <div className="w-full bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
@@ -26,13 +30,23 @@ export default function Card({ product }: { product: any }) {
           <p className="text-sm font-bold text-black truncate block capitalize">
             {product.name}
           </p>
+
           <div className="flex items-center">
             <p className="text-sm font-semibold text-black cursor-auto my-3">
               ${product.price}
             </p>
+
+            {/* Quantity in cart - simple number */}
+            {quantityInCart > 0 && (
+              <span className="ml-auto mr-2 text-sm font-bold text-zinc-900">
+                {quantityInCart}
+              </span>
+            )}
             <button
               onClick={handleAddToCart}
-              className={`ml-auto p-2 rounded-full transition-all duration-300 ${
+              className={`${
+                quantityInCart > 0 ? "" : "ml-auto"
+              } p-2 rounded-full transition-all duration-300 ${
                 isAdding
                   ? "bg-green-500 text-white scale-110"
                   : "hover:bg-zinc-100 text-zinc-700"
