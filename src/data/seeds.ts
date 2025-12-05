@@ -58,7 +58,7 @@ export const products = [
     name: "Papas Fritas",
     price: 1800,
     categoryId: 3,
-    image: "https://images.unsplash.com/photo-1566478949033-69c355e48ea2?auto=format&fit=crop&w=500&q=60",
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
   },
   {
     id: 7,
