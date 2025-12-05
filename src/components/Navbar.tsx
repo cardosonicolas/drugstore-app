@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-
 import { categories } from "@/data/seeds";
-
 import Image from "next/image";
+import { useCart } from "@/contexts/CartContext";
 
 export default function Navbar() {
+  const { totalItems, setIsCartOpen } = useCart();
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
@@ -45,10 +46,15 @@ export default function Navbar() {
 
         {/* Right: Cart */}
         <div className="flex items-center gap-4 shrink-0">
-          <button className="group relative p-2 text-zinc-700 hover:text-zinc-900 transition-colors">
-            <div className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
-              5
-            </div>
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="group relative p-2 text-zinc-700 hover:text-zinc-900 transition-colors"
+          >
+            {totalItems > 0 && (
+              <div className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
+                {totalItems}
+              </div>
+            )}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
