@@ -19,26 +19,24 @@ export default function Card({ product }: { product: any }) {
   const quantityInCart = cartItem ? cartItem.quantity : 0;
 
   return (
-    <div className="w-full bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div className="w-full bg-white border border-zinc-100 rounded-lg duration-300 hover:border-zinc-200 hover:shadow-sm transition-all">
       <a href="#">
         <img
           src={product.image}
           alt="Product"
-          className="h-32 w-full object-cover rounded-t-xl"
+          className="h-32 w-full object-cover rounded-t-lg"
         />
-        <div className="px-3 py-3 w-full">
-          <p className="text-sm font-bold text-black truncate block capitalize">
+        <div className="px-4 py-3 w-full">
+          <p className="text-sm font-semibold text-zinc-900 truncate block capitalize mb-2">
             {product.name}
           </p>
 
           <div className="flex items-center">
-            <p className="text-sm font-semibold text-black cursor-auto my-3">
-              ${product.price}
-            </p>
+            <p className="text-sm font-bold text-zinc-900">${product.price}</p>
 
             {/* Quantity in cart - simple number */}
             {quantityInCart > 0 && (
-              <span className="ml-auto mr-2 text-sm font-bold text-zinc-900">
+              <span className="ml-auto mr-2 text-xs font-bold text-zinc-600">
                 {quantityInCart}
               </span>
             )}
@@ -46,16 +44,16 @@ export default function Card({ product }: { product: any }) {
               onClick={handleAddToCart}
               className={`${
                 quantityInCart > 0 ? "" : "ml-auto"
-              } p-2 rounded-full transition-all duration-300 ${
+              } p-2 rounded-full transition-all duration-200 ${
                 isAdding
-                  ? "bg-green-500 text-white scale-110"
-                  : "hover:bg-zinc-100 text-zinc-700"
+                  ? "bg-zinc-900 text-white scale-110"
+                  : "hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900"
               }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 fill="currentColor"
                 className="bi bi-bag-plus"
                 viewBox="0 0 16 16"
