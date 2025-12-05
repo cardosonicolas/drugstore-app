@@ -116,6 +116,17 @@ export default function Footer() {
           <p className="text-[10px] text-zinc-300 uppercase tracking-widest">
             &copy; {new Date().getFullYear()} Drugstore El Paracao
           </p>
+          <p className="text-[9px] text-zinc-200 mt-2 tracking-wide">
+            Developed by{" "}
+            <a
+              href="https://cardosonicolas.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-300 hover:text-zinc-500 transition-colors duration-300 underline decoration-dotted underline-offset-2"
+            >
+              Nicolas Cardoso
+            </a>
+          </p>
         </div>
       </div>
     </footer>
