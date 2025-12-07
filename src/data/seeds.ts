@@ -8,7 +8,7 @@ export const categories = [
 ];
 
 export const products = [
-  // Bebidas
+  // Bebidas (Existing: 1-3)
   {
     id: 1,
     name: "Coca Cola 500ml",
@@ -33,8 +33,79 @@ export const products = [
     image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=500&q=60",
     bannerImage: "https://images.unsplash.com/photo-1618183000911-09eb3b315a2a?auto=format&fit=crop&w=1200&q=80",
   },
+  // Bebidas (New)
+  {
+    id: 12,
+    name: "Sprite 500ml",
+    price: 1500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1625772299848-b9f666eb1544?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 13,
+    name: "Fanta Naranja 500ml",
+    price: 1500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 14,
+    name: "Pepsi 500ml",
+    price: 1500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 15,
+    name: "Gatorade Blue 500ml",
+    price: 1800,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 16,
+    name: "Agua Con Gas 1.5L",
+    price: 1200,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1560023907-5f339617ea30?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 17,
+    name: "Energizante Monster",
+    price: 2500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 18,
+    name: "Energizante Red Bull",
+    price: 2800,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 19,
+    name: "Vino Malbec 750ml",
+    price: 4500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 20,
+    name: "Fernet Branca 750ml",
+    price: 8500,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 21,
+    name: "Agua Tónica 1.5L",
+    price: 1800,
+    categoryId: 1,
+    image: "https://images.unsplash.com/photo-1598614187854-26a60e982dc4?auto=format&fit=crop&w=500&q=60",
+  },
 
-  // Chocolates
+  // Chocolates (Existing: 4-5)
   {
     id: 4,
     name: "Chocolate con Leche",
@@ -51,8 +122,79 @@ export const products = [
     image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
     bannerImage: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=1200&q=80",
   },
+  // Chocolates (New)
+  {
+    id: 22,
+    name: "Alfajor Triple Chocolate",
+    price: 1000,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1511381978503-e96b560a051d?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 23,
+    name: "Chocolate Blanco 100g",
+    price: 2200,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 24,
+    name: "Chocolate Amargo 70%",
+    price: 2500,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 25,
+    name: "Bombones Surtidos",
+    price: 3500,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 26,
+    name: "Confites de Chocolate",
+    price: 1200,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 27,
+    name: "Oblea de Chocolate",
+    price: 600,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1511381978503-e96b560a051d?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 28,
+    name: "Turrón de Maní",
+    price: 400,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 29,
+    name: "Bocadito de Chocolate",
+    price: 500,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 30,
+    name: "Huevo Sorpresa",
+    price: 1800,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1511381978503-e96b560a051d?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 31,
+    name: "Chocolate con Almendras",
+    price: 2800,
+    categoryId: 2,
+    image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=500&q=60",
+  },
 
-  // Snacks
+  // Snacks (Existing: 6-7)
   {
     id: 6,
     name: "Papas Fritas",
@@ -67,8 +209,79 @@ export const products = [
     categoryId: 3,
     image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
   },
+  // Snacks (New)
+  {
+    id: 32,
+    name: "Nachos con Queso",
+    price: 2200,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 33,
+    name: "Palitos Salados",
+    price: 900,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 34,
+    name: "Chizitos XL",
+    price: 1500,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 35,
+    name: "Papas Fritas Cebolla",
+    price: 1800,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 36,
+    name: "Mix Frutos Secos",
+    price: 2500,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 37,
+    name: "Tutucas",
+    price: 800,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 38,
+    name: "Maíz Inflado",
+    price: 1200,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 39,
+    name: "Galletitas Saladas",
+    price: 1100,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 40,
+    name: "Castañas de Cajú",
+    price: 3500,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 41,
+    name: "Pistachos 100g",
+    price: 3800,
+    categoryId: 3,
+    image: "https://images.unsplash.com/photo-1613626628956-c02359565576?auto=format&fit=crop&w=500&q=60",
+  },
 
-  // Cigarrillos
+  // Cigarrillos (Existing: 8)
   {
     id: 8,
     name: "Cigarrillos Box 20",
@@ -76,8 +289,79 @@ export const products = [
     categoryId: 4,
     image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
   },
+  // Cigarrillos (New)
+  {
+    id: 42,
+    name: "Cigarrillos Red Box 20",
+    price: 3500,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 43,
+    name: "Cigarrillos Gold Box 20",
+    price: 3500,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 44,
+    name: "Cigarrillos Blue Box 20",
+    price: 3500,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 45,
+    name: "Cigarrillos Mentolados",
+    price: 3600,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 46,
+    name: "Cigarrillos Soft 20",
+    price: 3200,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 47,
+    name: "Cigarrillos 10u",
+    price: 1900,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 48,
+    name: "Cigarrillos Doble Click",
+    price: 3600,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 49,
+    name: "Cigarrillos Slims",
+    price: 3800,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 50,
+    name: "Cigarrillos Importados",
+    price: 4500,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 51,
+    name: "Cigarrillos Economy",
+    price: 2500,
+    categoryId: 4,
+    image: "https://images.unsplash.com/photo-1567880905822-56f8e06fe630?auto=format&fit=crop&w=500&q=60",
+  },
 
-  // Tabacos
+  // Tabacos (Existing: 9)
   {
     id: 9,
     name: "Tabaco para armar 40g",
@@ -85,8 +369,79 @@ export const products = [
     categoryId: 5,
     image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
   },
+  // Tabacos (New)
+  {
+    id: 52,
+    name: "Tabaco Vainilla 30g",
+    price: 4200,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 53,
+    name: "Tabaco Chocolate 30g",
+    price: 4200,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 54,
+    name: "Tabaco Cherry 30g",
+    price: 4200,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 55,
+    name: "Tabaco Menta 30g",
+    price: 4200,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 56,
+    name: "Filtros para armar",
+    price: 1500,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 57,
+    name: "Papelillos x50",
+    price: 800,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 58,
+    name: "Máquina para armar",
+    price: 2500,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 59,
+    name: "Tabaco Negro 40g",
+    price: 4000,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 60,
+    name: "Tabaco Rubio Suave",
+    price: 4500,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 61,
+    name: "Kit Fumador Completo",
+    price: 6000,
+    categoryId: 5,
+    image: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&w=500&q=60",
+  },
 
-  // Despensa
+  // Despensa (Existing: 10-11)
   {
     id: 10,
     name: "Yerba Mate 500g",
@@ -98,6 +453,77 @@ export const products = [
     id: 11,
     name: "Galletitas Dulces",
     price: 1100,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=60",
+  },
+  // Despensa (New)
+  {
+    id: 62,
+    name: "Azúcar Común 1kg",
+    price: 1200,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1581093458791-9f30398bf352?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 63,
+    name: "Café Molido 250g",
+    price: 4500,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 64,
+    name: "Té Negro Caja x25",
+    price: 1500,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 65,
+    name: "Mermelada Durazno",
+    price: 2200,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1621263764228-a400c0f8a9a2?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 66,
+    name: "Dulce de Leche 400g",
+    price: 2800,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1565895405138-6c3a1555da6a?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 67,
+    name: "Pan Lactal Blanco",
+    price: 2500,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 68,
+    name: "Aceite Girasol 900ml",
+    price: 2200,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1474979266404-7caddbed772e?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 69,
+    name: "Fideos Spaghetti 500g",
+    price: 1200,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1598965402089-897ce52e8355?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 70,
+    name: "Arroz Largo Fino 1kg",
+    price: 1500,
+    categoryId: 6,
+    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    id: 71,
+    name: "Polenta 500g",
+    price: 900,
     categoryId: 6,
     image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=60",
   },
