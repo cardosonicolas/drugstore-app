@@ -27,6 +27,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -38,12 +39,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         console.error("Error loading cart from localStorage:", error);
       }
     }
+    setIsInitialized(true);
   }, []);
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
+    if (!isInitialized) return;
     localStorage.setItem("drugstore-cart", JSON.stringify(cart));
-  }, [cart]);
+  }, [cart, isInitialized]);
 
   const addToCart = (product: any) => {
     setCart((prevCart) => {
