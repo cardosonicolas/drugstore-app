@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col font-sans">
       <Navbar />
-      <HeroCarousel products={featuredProducts} />
+      {/* <HeroCarousel products={featuredProducts} /> */}
       <CategoriesMenu
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}

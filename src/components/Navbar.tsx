@@ -14,7 +14,7 @@ export default function Navbar() {
         {/* Left: Logo */}
         <div className="flex items-center shrink-0">
           <Link href="/" className="text-2xl font-bold text-zinc-900">
-            <Image src="/test.svg" width={60} height={60} alt="Logo" />
+            <Image src="/test.svg" width={100} height={100} alt="Logo" />
           </Link>
         </div>
 
