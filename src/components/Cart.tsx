@@ -1,7 +1,13 @@
 "use client";
 
 import { useCart } from "@/contexts/CartContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import {
+  getCoordinates,
+  calculateDistance,
+  calculateShippingCost,
+  STORE_COORDINATES,
+} from "@/utils/geo";
 
 export default function Cart() {
   const {
@@ -13,6 +19,76 @@ export default function Cart() {
     totalPrice,
     totalItems,
   } = useCart();
+
+  // Estados para el formulario de dirección
+  const [address, setAddress] = useState("");
+  const [addressError, setAddressError] = useState("");
+  const [shippingCost, setShippingCost] = useState(0);
+  const [distance, setDistance] = useState<number | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
+
+  const handleCalculateShipping = async () => {
+    if (!address.trim()) {
+      setAddressError("Ingresa una dirección para calcular el envío");
+      return;
+    }
+
+    setIsCalculating(true);
+    setAddressError("");
+    setShippingCost(0);
+    setDistance(null);
+
+    // Use input address directly - the API filter handles the context
+    const searchAddress = address;
+
+    const coords = await getCoordinates(searchAddress);
+
+    if (coords) {
+      const dist = calculateDistance(
+        coords.lat,
+        coords.lon,
+        STORE_COORDINATES.lat,
+        STORE_COORDINATES.lon
+      );
+      setDistance(dist);
+      setShippingCost(calculateShippingCost(dist));
+    } else {
+      setAddressError(
+        "No se pudo calcular el envío automáticamente. El costo deberá ser consultado con el vendedor."
+      );
+    }
+    setIsCalculating(false);
+  };
+
+  const handleCheckout = () => {
+    if (!address.trim()) {
+      setAddressError("Por favor ingresa tu dirección de envío");
+      return;
+    }
+
+    // Aquí iría la lógica de finalización (ej: enviar WhatsApp)
+    console.log("Comprando con dirección:", address);
+
+    // Format shipping info for WhatsApp
+    const shippingInfo =
+      distance !== null
+        ? `*Envío (${distance}km):* $${shippingCost}`
+        : `*Envío:* A coordinar con el vendedor`;
+
+    const finalTotal = totalPrice + shippingCost;
+
+    const msg = `Hola! Quiero hacer un pedido.%0A%0A*Items:*%0A${cart
+      .map((i) => `${i.quantity}x ${i.name}`)
+      .join(
+        "%0A"
+      )}%0A%0A*Subtotal:* $${totalPrice}%0A${shippingInfo}%0A*Total:* $${finalTotal}%0A%0A*Dirección de envío:* ${address} (Paraná)`;
+
+    window.open(
+      `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${msg}`,
+      "_blank"
+    );
+    setIsCartOpen(false);
+  };
 
   // Prevent body scroll when cart is open
   useEffect(() => {
@@ -186,15 +262,112 @@ export default function Cart() {
 
         {/* Footer */}
         {cart.length > 0 && (
-          <div className="border-t border-zinc-100 px-6 py-5 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-zinc-600">Total</span>
-              <span className="text-2xl font-bold text-zinc-900">
-                ${totalPrice}
-              </span>
+          <div className="border-t border-zinc-100 px-6 py-6 bg-white space-y-4">
+            {/* Formulario de Dirección Simple */}
+            <div className="space-y-3 mb-4">
+              <div>
+                <label className="block text-xs font-medium text-zinc-500 mb-1.5 ml-1">
+                  Dirección de envío <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={address}
+                  onChange={(e) => {
+                    setAddress(e.target.value);
+                    if (e.target.value.trim()) setAddressError("");
+                  }}
+                  placeholder="Calle y altura en Paraná (ej: Urquiza 1200)"
+                  className={`w-full px-4 py-2.5 bg-zinc-50 border ${
+                    addressError
+                      ? "border-red-300 focus:ring-red-200"
+                      : "border-zinc-200 focus:ring-zinc-200"
+                  } rounded-xl text-sm focus:outline-none focus:ring-2 focus:border-zinc-300 transition-all placeholder:text-zinc-400`}
+                />
+                {addressError && (
+                  <p className="text-xs text-red-500 mt-1 ml-1">
+                    {addressError}
+                  </p>
+                )}
+              </div>
+
+              <button
+                onClick={handleCalculateShipping}
+                disabled={isCalculating || !address}
+                className="w-full py-2 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 rounded-lg text-xs font-medium transition-colors mb-2 disabled:opacity-50"
+              >
+                {isCalculating ? "Calculando..." : "Calcular Envío"}
+              </button>
+
+              {distance !== null && (
+                <div className="bg-blue-50 p-3 rounded-lg border border-blue-100 mb-2">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-blue-700">Distancia al local:</span>
+                    <span className="font-bold text-blue-900">
+                      {distance} km
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm mt-1">
+                    <span className="text-blue-700">Costo de envío:</span>
+                    <span className="font-bold text-blue-900">
+                      ${shippingCost}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <label className="block text-xs font-medium text-zinc-500 mb-1.5 ml-1">
+                  Notas / Referencias
+                </label>
+                <input
+                  type="text"
+                  placeholder="Piso, depto, color de casa..."
+                  className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:border-zinc-300 transition-all placeholder:text-zinc-400"
+                />
+              </div>
             </div>
-            <button className="w-full bg-zinc-900 hover:bg-zinc-800 text-white py-3 rounded-lg font-medium transition-colors">
-              Finalizar Compra
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100">
+              <div className="flex items-center justify-between text-sm text-zinc-500">
+                <span>Subtotal</span>
+                <span>${totalPrice.toLocaleString()}</span>
+              </div>
+              <div className="flex items-center justify-between text-sm text-zinc-500">
+                <span>Envío</span>
+                <span>
+                  $
+                  {shippingCost > 0
+                    ? shippingCost.toLocaleString()
+                    : "A calcular"}
+                </span>
+              </div>
+              <div className="flex items-center justify-between pt-2">
+                <span className="text-sm font-medium text-zinc-600">Total</span>
+                <span className="text-2xl font-bold text-zinc-900">
+                  ${(totalPrice + shippingCost).toLocaleString()}
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={handleCheckout}
+              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white py-3.5 rounded-xl font-medium transition-all transform hover:scale-[1.01] active:scale-[0.99] shadow-lg flex items-center justify-center gap-2"
+            >
+              <span>Finalizar Compra</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </button>
           </div>
         )}
