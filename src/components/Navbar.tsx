@@ -1,54 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import { categories } from "@/data/seeds";
 import Image from "next/image";
 import { useCart } from "@/contexts/CartContext";
+import SearchBar from "@/components/SearchBar";
+
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/contacto", label: "Contacto" },
+];
 
 export default function Navbar() {
   const { totalItems, setIsCartOpen } = useCart();
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
-        {/* Left: Logo */}
-        <div className="flex items-center shrink-0">
-          <Link href="/" className="text-2xl font-bold text-zinc-900">
-            <Image src="/test.svg" width={100} height={100} alt="Logo" />
+        <div className="flex items-center gap-6 shrink-0">
+          <Link href="/" className="flex items-center" aria-label="Drugstore El Paracao - Inicio">
+            <Image src="/logo.svg" width={48} height={48} alt="Drugstore El Paracao" priority />
           </Link>
+          <ul className="hidden lg:flex items-center gap-1">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="text-sm font-medium text-zinc-600 hover:text-zinc-900 px-3 py-2 rounded-md hover:bg-zinc-50 transition-colors"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Center: Search Bar */}
-        <div className="flex flex-1 max-w-2xl mx-4">
-          <div className="relative w-full">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg
-                className="h-5 w-5 text-gray-400"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <input
-              type="text"
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-full leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Buscar productos"
-            />
-          </div>
-        </div>
+        <SearchBar />
 
-        {/* Right: Cart */}
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
+          <Link
+            href="/servicios"
+            className="hidden md:inline-flex items-center text-xs font-semibold text-zinc-600 hover:text-zinc-900"
+          >
+            ¿Cómo pedir?
+          </Link>
           <button
             onClick={() => setIsCartOpen(true)}
             className="group relative p-2 text-zinc-700 hover:text-zinc-900 transition-colors"
+            aria-label={`Abrir carrito (${totalItems} productos)`}
           >
             {totalItems > 0 && (
               <div className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
