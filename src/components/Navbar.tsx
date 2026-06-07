@@ -43,8 +43,12 @@ export default function Navbar() {
               className="group flex items-center gap-3"
               aria-label="Drugstore El Paracao - Inicio"
             >
-              <span className="relative grid h-11 w-11 place-items-center rounded-full bg-oxblood text-paper shadow-stamp transition-transform group-hover:rotate-[-6deg]">
-                <span className="font-display text-xl font-bold leading-none">EP</span>
+              <span className="relative h-14 w-14 rounded-full overflow-hidden bg-paper ring-1 ring-ink/10 shadow-stamp transition-transform group-hover:rotate-[-6deg]">
+                <img
+                  src="/logo.svg"
+                  alt="Drugstore El Paracao"
+                  className="h-full w-full object-cover"
+                />
                 <span className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-amber-warm ring-2 ring-paper" />
               </span>
               <span className="hidden sm:flex flex-col leading-none">
@@ -52,7 +56,7 @@ export default function Navbar() {
                   El Paracao
                 </span>
                 <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-ink/60 mt-0.5">
-                  Drugstore · 1973
+                  Drugstore
                 </span>
               </span>
             </Link>
