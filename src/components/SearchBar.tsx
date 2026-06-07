@@ -21,7 +21,10 @@ export default function SearchBar() {
 
   useEffect(() => {
     const onClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
         setOpen(false);
       }
     };
@@ -47,10 +50,10 @@ export default function SearchBar() {
 
   return (
     <div ref={containerRef} className="relative flex flex-1 max-w-2xl mx-4">
-      <div className="relative w-full">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+      <div className="relative w-full group">
+        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <svg
-            className="h-5 w-5 text-gray-400"
+            className="h-4 w-4 text-ink-soft"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -71,23 +74,29 @@ export default function SearchBar() {
             setOpen(true);
           }}
           onFocus={() => setOpen(true)}
-          className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-full leading-5 bg-gray-50 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          placeholder="¿Qué buscás hoy? 🍫🥤"
+          className="block w-full pl-11 pr-12 py-2.5 border-2 border-ink/15 rounded-full leading-5 bg-paper placeholder:text-ink-soft/60 focus:outline-none focus:border-ink focus:bg-paper text-sm font-medium text-ink transition-colors"
+          placeholder="Buscá lo que te antoja…"
           aria-label="Buscar productos"
         />
-        <kbd className="hidden md:inline-flex absolute right-3 top-1/2 -translate-y-1/2 items-center px-1.5 py-0.5 text-[10px] font-semibold text-zinc-500 bg-zinc-100 border border-zinc-200 rounded">
+        <kbd className="hidden md:inline-flex absolute right-3 top-1/2 -translate-y-1/2 items-center px-1.5 h-5 text-[10px] font-mono font-bold text-ink-soft bg-cream-dark border border-ink/15 rounded">
           /
         </kbd>
       </div>
 
       {open && query.trim() && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-zinc-100 overflow-hidden z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-paper rounded-2xl shadow-lift border-2 border-ink overflow-hidden z-50">
           {results.length === 0 ? (
-            <div className="p-4 text-sm text-zinc-500 text-center">
-              No encontramos productos para &quot;{query}&quot;
+            <div className="p-5 text-sm text-ink-soft text-center">
+              <p className="font-display text-lg font-bold text-ink mb-1">
+                Nada por acá
+              </p>
+              <p>
+                No encontramos productos para &quot;{query}&quot;. Probá con
+                otra palabra.
+              </p>
             </div>
           ) : (
-            <ul className="max-h-80 overflow-y-auto">
+            <ul className="max-h-96 overflow-y-auto">
               {results.map((p) => (
                 <li key={p.id}>
                   <Link
@@ -96,19 +105,28 @@ export default function SearchBar() {
                       setOpen(false);
                       setQuery("");
                     }}
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-zinc-50 transition-colors"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-cream border-b border-ink/10 last:border-0 transition-colors"
                   >
-                    <div className="relative w-10 h-10 rounded-md overflow-hidden bg-zinc-100 shrink-0">
-                      <Image src={p.image} alt={p.name} fill className="object-cover" sizes="40px" />
+                    <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-cream-dark shrink-0">
+                      <Image
+                        src={p.image}
+                        alt={p.name}
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-zinc-900 truncate">
+                      <p className="text-sm font-semibold text-ink truncate">
                         {p.name}
                       </p>
-                      <p className="text-xs text-zinc-500">
+                      <p className="font-mono text-xs text-oxblood font-bold">
                         ${p.price.toLocaleString("es-AR")}
                       </p>
                     </div>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-soft">
+                      Ver →
+                    </span>
                   </Link>
                 </li>
               ))}

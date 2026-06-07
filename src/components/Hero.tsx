@@ -1,14 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/contexts/CartContext";
 import { SITE } from "@/lib/seo";
+import { products } from "@/data/seeds";
 
 function isOpenNow(): boolean {
   const now = new Date();
   const hour = now.getHours();
   return hour >= 9 || hour < 4;
 }
+
+const categories = [
+  "Bebidas",
+  "Chocolates",
+  "Snacks",
+  "Cigarrillos",
+  "Tabacos",
+  "Despensa",
+  "Cervezas",
+  "Vinos",
+  "Energizantes",
+];
 
 export default function Hero() {
   const { setIsCartOpen } = useCart();
@@ -17,72 +31,206 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative w-full overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 text-white"
+      className="relative w-full overflow-hidden bg-cream"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.15),transparent_60%)]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-        <div className="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto">
-          <span
-            className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase ${
-              open ? "bg-green-500/20 text-green-300 ring-1 ring-green-400/30" : "bg-red-500/20 text-red-300 ring-1 ring-red-400/30"
-            }`}
-          >
-            <span
-              className={`h-2 w-2 rounded-full ${open ? "bg-green-400 animate-pulse" : "bg-red-400"}`}
-            />
-            {open ? "Abierto ahora · 9:00 a 04:00" : "Cerrado · Volvé a las 9:00"}
-          </span>
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 -right-32 h-[520px] w-[520px] rounded-full bg-amber-warm/40 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-40 -left-20 h-[420px] w-[420px] rounded-full bg-oxblood/15 blur-3xl"
+      />
 
-          <h1
-            id="hero-title"
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
-          >
-            Tu drugstore a domicilio en{" "}
-            <span className="text-green-400">Paraná</span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-zinc-300 max-w-2xl">
-            Bebidas, snacks, chocolates y despensa en la puerta de tu casa. Pedí
-            por WhatsApp y recibí en 30 minutos. Atendemos de 9:00 a 04:00,
-            todos los días del año.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto">
-            <button
-              onClick={() => {
-                setIsCartOpen(true);
-                document.getElementById("productos")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Hacé tu pedido ahora
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-8 sm:pt-14 sm:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-8 relative">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span
+                className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-[0.18em] ${
+                  open
+                    ? "bg-leaf/15 text-leaf-dark ring-1 ring-leaf/30"
+                    : "bg-oxblood/15 text-oxblood-dark ring-1 ring-oxblood/30"
+                }`}
               >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </button>
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${
+                    open ? "bg-leaf animate-pulse" : "bg-oxblood"
+                  }`}
+                />
+                {open ? "Abierto · 9 → 04" : "Cerrado · 09:00"}
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-soft">
+                <span aria-hidden="true">★</span>
+                +1.000 pedidos entregados
+              </span>
+            </div>
 
-            <Link
-              href="/servicios"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white px-6 py-3.5 rounded-full font-medium transition-all ring-1 ring-white/20 hover:ring-white/40"
+            <h1
+              id="hero-title"
+              className="text-display text-[clamp(2.75rem,8vw,6rem)] leading-[0.92] font-extrabold text-ink"
             >
-              Ver cómo pedir
-            </Link>
+              Tu kiosco
+              <br />
+              a la <span className="relative inline-block">
+                <span className="relative z-10 text-oxblood">puerta</span>
+                <span aria-hidden="true" className="absolute inset-x-0 bottom-1 h-3 sm:h-4 bg-amber-warm/70 -z-0" />
+              </span>
+              <span className="block">de tu casa.</span>
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg text-ink-soft max-w-xl leading-relaxed">
+              Bebidas, snacks, chocolates, cigarrillos y despensa en Paraná y
+              zonas aledañas. Pedí por WhatsApp y recibilo en{" "}
+              <span className="font-display font-bold text-ink">30 minutos</span>{" "}
+              — incluso de madrugada.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => {
+                  setIsCartOpen(true);
+                  document
+                    .getElementById("productos")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="group inline-flex items-center justify-center gap-2 bg-oxblood hover:bg-oxblood-dark text-paper px-7 py-4 rounded-full font-semibold transition-all shadow-lift hover-lift"
+              >
+                Armar mi pedido
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-paper/15 transition-transform group-hover:translate-x-0.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
+              </button>
+              <Link
+                href="/servicios"
+                className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-ink text-ink hover:bg-ink hover:text-paper px-7 py-4 rounded-full font-semibold transition-all"
+              >
+                ¿Cómo funciona?
+              </Link>
+            </div>
+
+            <dl className="mt-10 grid grid-cols-3 gap-px bg-ink/10 border border-ink/15 rounded-2xl overflow-hidden max-w-xl">
+              {[
+                { k: "30 min", v: "Entrega en zona centro" },
+                { k: "9 → 04", v: "Todos los días del año" },
+                { k: "2", v: "Sucursales en Paraná" },
+              ].map((s) => (
+                <div
+                  key={s.k}
+                  className="bg-paper px-4 py-3 sm:py-4 flex flex-col gap-0.5"
+                >
+                  <dt className="font-display text-2xl sm:text-3xl font-extrabold text-ink leading-none">
+                    {s.k}
+                  </dt>
+                  <dd className="text-[11px] font-mono uppercase tracking-[0.14em] text-ink-soft">
+                    {s.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          <p className="text-xs text-zinc-400 mt-4">
-            {SITE.cities.slice(0, 3).join(" · ")} y zonas aledañas
-          </p>
+          <div className="lg:col-span-4 relative">
+            {(() => {
+              const featured =
+                products.find((p) => p.badge === "bestseller") ?? products[0];
+              return (
+                <Link
+                  href={`/producto/${featured.id}`}
+                  className="group block relative bg-paper border-2 border-ink rounded-3xl overflow-hidden shadow-stamp hover-lift"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="absolute -top-3 -right-3 z-10 grid h-14 w-14 place-items-center rounded-full bg-amber-warm text-ink font-display font-extrabold text-[10px] uppercase tracking-wider text-center leading-tight shadow-stamp rotate-[8deg]"
+                  >
+                    Top
+                    <br />
+                    ventas
+                  </div>
+
+                  <div className="relative aspect-square bg-cream-dark">
+                    <Image
+                      src={featured.image}
+                      alt={featured.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="p-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-oxblood">
+                      Lo más pedido
+                    </p>
+                    <h3 className="font-display text-lg sm:text-xl font-extrabold text-ink mt-1 capitalize leading-snug line-clamp-2">
+                      {featured.name}
+                    </h3>
+                    <div className="mt-3 flex items-baseline justify-between">
+                      <span className="font-display text-2xl font-extrabold text-ink">
+                        ${featured.price.toLocaleString("es-AR")}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-ink group-hover:text-oxblood transition-colors">
+                        Ver
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="transition-transform group-hover:translate-x-0.5"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })()}
+
+            <p className="text-center mt-4 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-soft">
+              {SITE.cities.slice(0, 3).join(" · ")} y zonas aledañas
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="relative bg-ink text-paper py-3 overflow-hidden border-y border-ink"
+      >
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...Array(2)].map((_, dup) => (
+            <div key={dup} className="flex items-center gap-8 px-4 shrink-0">
+              {categories.map((c) => (
+                <span
+                  key={`${dup}-${c}`}
+                  className="inline-flex items-center gap-4 font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight"
+                >
+                  <span>{c}</span>
+                  <span className="text-amber-warm">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>
