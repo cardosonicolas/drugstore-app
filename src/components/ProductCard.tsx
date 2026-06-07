@@ -1,7 +1,9 @@
 "use client";
 
-import { useCart } from "@/contexts/CartContext";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 import type { Product } from "@/data/seeds";
 
 const badgeLabels: Record<NonNullable<Product["badge"]>, { text: string; className: string }> = {
@@ -10,9 +12,12 @@ const badgeLabels: Record<NonNullable<Product["badge"]>, { text: string; classNa
   new: { text: "Nuevo", className: "bg-blue-500" },
 };
 
-export default function Card({ product }: { product: Product }) {
+export default function ProductCard({ product }: { product: Product }) {
   const { addToCart, cart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
+
+  const cartItem = cart.find((item) => item.id === product.id);
+  const quantityInCart = cartItem ? cartItem.quantity : 0;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -22,15 +27,12 @@ export default function Card({ product }: { product: Product }) {
     setTimeout(() => setIsAdding(false), 600);
   };
 
-  const cartItem = cart.find((item) => item.id === product.id);
-  const quantityInCart = cartItem ? cartItem.quantity : 0;
-
   const hasDiscount =
     typeof product.compareAtPrice === "number" && product.compareAtPrice > product.price;
 
   return (
     <article className="group relative w-full bg-white border border-zinc-100 rounded-xl overflow-hidden duration-300 hover:border-zinc-200 hover:shadow-md transition-all">
-      <a href={`/producto/${product.id}`} className="block" aria-label={product.name}>
+      <Link href={`/producto/${product.id}`} className="block" aria-label={product.name}>
         {product.badge && (
           <span
             className={`absolute top-2 left-2 z-10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white rounded-full shadow-sm ${badgeLabels[product.badge].className}`}
@@ -40,11 +42,12 @@ export default function Card({ product }: { product: Product }) {
         )}
 
         <div className="relative h-32 w-full bg-zinc-50">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={product.image}
             alt={product.name}
-            className="h-full w-full object-cover"
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
+            className="object-cover"
           />
         </div>
 
@@ -73,7 +76,9 @@ export default function Card({ product }: { product: Product }) {
               onClick={handleAddToCart}
               aria-label={`Agregar ${product.name} al carrito`}
               className={`flex-1 inline-flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-                isAdding ? "bg-green-600 text-white" : "bg-zinc-900 hover:bg-zinc-800 text-white"
+                isAdding
+                  ? "bg-zinc-900 text-white"
+                  : "bg-zinc-900 hover:bg-zinc-800 text-white"
               }`}
             >
               {isAdding ? (
@@ -100,7 +105,7 @@ export default function Card({ product }: { product: Product }) {
             )}
           </div>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }

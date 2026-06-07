@@ -1,10 +1,9 @@
-"use client";
-
+import Link from "next/link";
 import { categories } from "@/data/seeds";
 
 interface CategoriesMenuProps {
-  selectedCategory: number | null;
-  onSelectCategory: (id: number | null) => void;
+  selectedCategory?: number | null;
+  onSelectCategory?: (id: number | null) => void;
 }
 
 export default function CategoriesMenu({
@@ -15,29 +14,44 @@ export default function CategoriesMenu({
     <div className="w-full bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center overflow-x-auto py-3 no-scrollbar gap-2">
-          <button
-            onClick={() => onSelectCategory(null)}
-            className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border ${
-              selectedCategory === null
-                ? "bg-zinc-900 text-white border-zinc-900"
-                : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
-            }`}
-          >
-            Todas
-          </button>
-          {categories.map((category) => (
+          {onSelectCategory && (
             <button
-              key={category.id}
-              onClick={() => onSelectCategory(category.id)}
+              onClick={() => onSelectCategory(null)}
               className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border ${
-                selectedCategory === category.id
+                selectedCategory === null
                   ? "bg-zinc-900 text-white border-zinc-900"
                   : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
               }`}
             >
-              {category.name}
+              Todas
             </button>
-          ))}
+          )}
+          {categories.map((category) => {
+            if (onSelectCategory) {
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => onSelectCategory(category.id)}
+                  className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border ${
+                    selectedCategory === category.id
+                      ? "bg-zinc-900 text-white border-zinc-900"
+                      : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
+                  }`}
+                >
+                  {category.name}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={category.id}
+                href={`/categoria/${category.slug}`}
+                className="text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
+              >
+                {category.name}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
