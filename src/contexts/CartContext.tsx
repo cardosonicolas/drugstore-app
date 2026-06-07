@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 export interface CartItem {
   id: number;
@@ -10,9 +10,16 @@ export interface CartItem {
   quantity: number;
 }
 
+export interface CartProductInput {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: any) => void;
+  addToCart: (product: CartProductInput) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
   clearCart: () => void;
@@ -24,28 +31,34 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+function readSavedCart(): CartItem[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const saved = localStorage.getItem("drugstore-cart");
+    return saved ? (JSON.parse(saved) as CartItem[]) : [];
+  } catch (error) {
+    console.error("Error loading cart from localStorage:", error);
+    return [];
+  }
+}
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Load cart from localStorage on mount
   useEffect(() => {
-    const savedCart = localStorage.getItem("drugstore-cart");
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch (error) {
-        console.error("Error loading cart from localStorage:", error);
-      }
-    }
+    // Hydrate cart from localStorage on mount. This is a one-shot client-only
+    // load, so the synchronous setState is intentional and unavoidable here.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCart(readSavedCart());
   }, []);
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
+    if (typeof window === "undefined") return;
     localStorage.setItem("drugstore-cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: any) => {
+  const addToCart = (product: CartProductInput) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
 
