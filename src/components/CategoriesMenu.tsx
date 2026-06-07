@@ -11,48 +11,46 @@ export default function CategoriesMenu({
   onSelectCategory,
 }: CategoriesMenuProps) {
   return (
-    <div className="w-full bg-white border-b border-zinc-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center overflow-x-auto py-3 no-scrollbar gap-2">
-          {onSelectCategory && (
-            <button
-              onClick={() => onSelectCategory(null)}
-              className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border ${
-                selectedCategory === null
-                  ? "bg-zinc-900 text-white border-zinc-900"
-                  : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
-              }`}
-            >
-              Todas
-            </button>
-          )}
-          {categories.map((category) => {
-            if (onSelectCategory) {
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => onSelectCategory(category.id)}
-                  className={`text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border ${
-                    selectedCategory === category.id
-                      ? "bg-zinc-900 text-white border-zinc-900"
-                      : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              );
-            }
+    <div className="w-full border-b border-ink/15">
+      <div className="flex items-center overflow-x-auto py-4 no-scrollbar gap-2">
+        {onSelectCategory && (
+          <button
+            onClick={() => onSelectCategory(null)}
+            className={`text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 whitespace-nowrap px-4 py-2.5 rounded-full shrink-0 border-2 ${
+              selectedCategory === null
+                ? "bg-ink text-paper border-ink"
+                : "bg-paper text-ink-soft hover:text-ink hover:border-ink/40 border-ink/15"
+            }`}
+          >
+            ✦ Todas
+          </button>
+        )}
+        {categories.map((category) => {
+          if (onSelectCategory) {
             return (
-              <Link
+              <button
                 key={category.id}
-                href={`/categoria/${category.slug}`}
-                className="text-xs font-medium transition-all duration-200 whitespace-nowrap px-4 py-2 rounded-full shrink-0 border text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 border-zinc-200 hover:border-zinc-300"
+                onClick={() => onSelectCategory(category.id)}
+                className={`text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 whitespace-nowrap px-4 py-2.5 rounded-full shrink-0 border-2 ${
+                  selectedCategory === category.id
+                    ? "bg-oxblood text-paper border-oxblood"
+                    : "bg-paper text-ink-soft hover:text-ink hover:border-ink/40 border-ink/15"
+                }`}
               >
                 {category.name}
-              </Link>
+              </button>
             );
-          })}
-        </div>
+          }
+          return (
+            <Link
+              key={category.id}
+              href={`/categoria/${category.slug}`}
+              className="text-xs font-bold uppercase tracking-[0.12em] transition-all duration-200 whitespace-nowrap px-4 py-2.5 rounded-full shrink-0 border-2 bg-paper text-ink-soft hover:text-ink hover:border-ink/40 border-ink/15"
+            >
+              {category.name}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
