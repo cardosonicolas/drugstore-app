@@ -32,11 +32,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-5">
-              <span className="relative h-12 w-12 rounded-full overflow-hidden bg-paper ring-1 ring-paper/20">
+              <span className="relative h-12 w-12 rounded-full overflow-hidden bg-ink ring-1 ring-paper/20">
                 <img
-                  src="/logo.svg"
+                  src="/logoOriginal.svg"
                   alt="Drugstore El Paracao"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain p-1"
                 />
               </span>
               <div className="leading-tight">

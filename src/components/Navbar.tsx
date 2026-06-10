@@ -43,11 +43,11 @@ export default function Navbar() {
               className="group flex items-center gap-3"
               aria-label="Drugstore El Paracao - Inicio"
             >
-              <span className="relative h-14 w-14 rounded-full overflow-hidden bg-paper ring-1 ring-ink/10 shadow-stamp transition-transform group-hover:rotate-[-6deg]">
+              <span className="relative h-14 w-14 rounded-full overflow-hidden bg-ink ring-1 ring-ink/10 shadow-stamp transition-transform group-hover:rotate-[-6deg]">
                 <img
-                  src="/logo.svg"
+                  src="/logoOriginal.svg"
                   alt="Drugstore El Paracao"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain p-1.5"
                 />
                 <span className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-amber-warm ring-2 ring-paper" />
               </span>
