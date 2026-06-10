@@ -66,6 +66,16 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: SITE.url },
   category: "shopping",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+    other: [
+      { rel: "icon", url: "/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
