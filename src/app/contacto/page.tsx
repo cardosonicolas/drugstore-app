@@ -98,23 +98,29 @@ export default function ContactoPage() {
         />
         <div
           aria-hidden="true"
-          className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-amber-warm/30 blur-3xl"
+          className="absolute -top-32 -left-20 h-72 w-72 rounded-full bg-amber-warm/30 blur-3xl"
         />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
-          <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-amber-warm">
-            <span className="h-px w-8 bg-amber-warm" />
-            Contacto
-            <span className="h-px w-8 bg-amber-warm" />
-          </span>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold mt-5 leading-[0.92]">
-            Estamos para
-            <br />
-            <span className="text-amber-warm">ayudarte</span>.
-          </h1>
-          <p className="text-paper/70 mt-5 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Escribinos por WhatsApp, visitanos en cualquiera de nuestras dos
-            sucursales o seguinos en redes.
-          </p>
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-oxblood/40 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-amber-warm">
+              <span className="h-px w-8 bg-amber-warm" />
+              Contacto
+            </span>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold mt-5 leading-[0.92]">
+              Estamos para
+              <br />
+              <span className="text-amber-warm">ayudarte</span>.
+            </h1>
+            <p className="text-paper/70 mt-5 text-base sm:text-lg max-w-2xl leading-relaxed">
+              Escribinos por WhatsApp, visitanos en cualquiera de nuestras dos
+              sucursales o seguinos en redes.
+            </p>
+          </div>
         </div>
       </section>
 
