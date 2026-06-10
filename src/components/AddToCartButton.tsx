@@ -26,23 +26,23 @@ export default function AddToCartButton({
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-stretch gap-3 items-center sm:justify-center">
         <div
           role="group"
           aria-label="Seleccionar cantidad"
-          className="inline-flex items-stretch self-stretch border-2 border-ink/15 rounded-2xl bg-paper overflow-hidden"
+          className="inline-flex items-stretch h-14 border-2 border-ink/15 rounded-2xl bg-paper overflow-hidden shrink-0 w-full sm:w-42"
         >
           <button
             type="button"
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
             aria-label="Disminuir cantidad"
-            className="w-14 grid place-items-center text-ink hover:bg-cream-dark transition-colors text-2xl font-bold leading-none"
+            className="flex-1 grid place-items-center text-ink hover:bg-cream-dark transition-colors text-2xl font-bold leading-none"
           >
             −
           </button>
           <span
             aria-live="polite"
-            className="w-14 grid place-items-center font-display font-extrabold text-xl text-ink border-x-2 border-ink/15 tabular-nums"
+            className="flex-1 grid place-items-center font-display font-extrabold text-xl text-ink border-x-2 border-ink/15 tabular-nums"
           >
             {quantity}
           </span>
@@ -50,7 +50,7 @@ export default function AddToCartButton({
             type="button"
             onClick={() => setQuantity((q) => q + 1)}
             aria-label="Aumentar cantidad"
-            className="w-14 grid place-items-center text-ink hover:bg-cream-dark transition-colors text-2xl font-bold leading-none"
+            className="flex-1 grid place-items-center text-ink hover:bg-cream-dark transition-colors text-2xl font-bold leading-none"
           >
             +
           </button>
@@ -59,7 +59,7 @@ export default function AddToCartButton({
           type="button"
           onClick={handleAdd}
           aria-label={`Agregar ${product.name} al carrito`}
-          className={`flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold uppercase tracking-[0.05em] text-sm transition-all hover-lift shadow-stamp ${
+          className={`w-full sm:flex-1 sm:max-w-md inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold uppercase tracking-[0.05em] text-sm transition-all hover-lift shadow-stamp ${
             isAdding
               ? "bg-leaf text-paper"
               : "bg-ink hover:bg-oxblood text-paper"
