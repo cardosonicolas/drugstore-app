@@ -50,7 +50,7 @@ const steps = [
 export default function ServiciosPage() {
   return (
     <>
-      <section className="relative bg-ink text-paper overflow-hidden">
+      <section className="relative w-full bg-ink text-paper overflow-hidden">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-30"
@@ -69,7 +69,7 @@ export default function ServiciosPage() {
           className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-oxblood/40 blur-3xl"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-[28rem] sm:h-[36rem] flex items-center">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-amber-warm">
               <span className="h-px w-8 bg-amber-warm" />

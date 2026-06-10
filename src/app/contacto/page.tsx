@@ -86,7 +86,7 @@ export default function ContactoPage() {
 
   return (
     <>
-      <section className="relative bg-ink text-paper overflow-hidden">
+      <section className="relative w-full bg-ink text-paper overflow-hidden">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-30"
@@ -105,7 +105,7 @@ export default function ContactoPage() {
           className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-oxblood/40 blur-3xl"
         />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-[28rem] sm:h-[36rem] flex items-center">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-amber-warm">
               <span className="h-px w-8 bg-amber-warm" />
@@ -128,10 +128,21 @@ export default function ContactoPage() {
         aria-labelledby="contact-methods"
         className="py-16 sm:py-20 bg-cream"
       >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 id="contact-methods" className="sr-only">
-            Formas de contacto
-          </h2>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
+            <div>
+              <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-oxblood">
+                <span className="h-px w-8 bg-oxblood" />
+                Redes y contacto
+              </span>
+              <h2
+                id="contact-methods"
+                className="font-display text-4xl sm:text-5xl font-extrabold text-ink mt-3 leading-[0.95]"
+              >
+                Escribinos <span className="text-oxblood">por cualquier medio</span>.
+              </h2>
+            </div>
+          </div>
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
             {contactMethods.map((m) => {
               const c = colorMap[m.color];
