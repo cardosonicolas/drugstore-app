@@ -3,6 +3,8 @@ import FAQ from "@/components/FAQ";
 import PromoBanner from "@/components/PromoBanner";
 import { SITE, buildWhatsAppUrl } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Contacto y sucursales | Drugstore El Paracao",
   description:
