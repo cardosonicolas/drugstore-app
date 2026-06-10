@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             </p>
             <div className="mt-8 flex items-center gap-3">
               <div className="flex -space-x-2">
-                {["#8B1818", "#E5A33C", "#2F7A3A"].map((c) => (
+                {["#e40044", "#009ee0", "#009035"].map((c) => (
                   <span
                     key={c}
                     className="h-8 w-8 rounded-full border-2 border-paper"
