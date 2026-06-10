@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/contexts/CartContext";
+import Link from "next/link";
 import { useState } from "react";
 import type { Product } from "@/data/seeds";
 
@@ -38,7 +39,7 @@ export default function Card({ product }: { product: Product }) {
 
   return (
     <article className="group relative w-full bg-paper border-2 border-ink/10 rounded-2xl overflow-hidden hover-lift shadow-card hover:shadow-lift hover:border-ink/20">
-      <a href={`/producto/${product.id}`} className="block" aria-label={product.name}>
+      <Link href={`/producto/${product.id}`} className="block" aria-label={product.name}>
         <div className="relative h-36 w-full bg-cream-dark overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -140,7 +141,7 @@ export default function Card({ product }: { product: Product }) {
             )}
           </div>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }

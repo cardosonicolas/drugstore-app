@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -115,7 +116,7 @@ export default function Home() {
               className="mt-16 flex flex-wrap justify-center gap-2"
             >
               {categories.map((c) => (
-                <a
+                <Link
                   key={c.id}
                   href={`/categoria/${c.slug}`}
                   className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-ink hover:text-paper px-5 py-2.5 rounded-full border-2 border-ink/15 hover:border-ink hover:bg-ink transition-all"
@@ -127,7 +128,7 @@ export default function Home() {
                   >
                     →
                   </span>
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
