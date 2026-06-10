@@ -154,7 +154,7 @@ export default function Hero() {
                 >
                   <div
                     aria-hidden="true"
-                    className="absolute -top-3 -right-3 z-10 grid h-14 w-14 place-items-center rounded-full bg-amber-warm text-ink font-display font-extrabold text-[10px] uppercase tracking-wider text-center leading-tight shadow-stamp rotate-[8deg]"
+                    className="absolute -top-3 -right-3 z-10 grid h-14 w-14 place-items-center rounded-full bg-ink text-paper font-display font-extrabold text-[10px] uppercase tracking-wider text-center leading-tight shadow-stamp rotate-[8deg]"
                   >
                     Top
                     <br />

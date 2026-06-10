@@ -9,7 +9,7 @@ const badgeLabels: Record<
   NonNullable<Product["badge"]>,
   { text: string; className: string }
 > = {
-  bestseller: { text: "Top ventas", className: "bg-amber-warm text-ink" },
+  bestseller: { text: "Top ventas", className: "bg-ink text-paper" },
   offer: { text: "Oferta", className: "bg-oxblood text-paper" },
   new: { text: "Nuevo", className: "bg-leaf text-paper" },
 };

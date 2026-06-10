@@ -39,7 +39,7 @@ const badgeStyles: Record<
   "bestseller" | "offer" | "new",
   { label: string; className: string }
 > = {
-  bestseller: { label: "Top ventas", className: "bg-amber-warm text-ink" },
+  bestseller: { label: "Top ventas", className: "bg-ink text-paper" },
   offer: { label: "Oferta", className: "bg-oxblood text-paper" },
   new: { label: "Nuevo", className: "bg-leaf text-paper" },
 };
