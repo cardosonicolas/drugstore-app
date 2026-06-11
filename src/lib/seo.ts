@@ -1,5 +1,5 @@
 export const SITE = {
-  url: "https://drugstore-elparacao.com.ar",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://elparacao.vercel.app",
   name: "Drugstore El Paracao",
   shortName: "El Paracao",
   tagline: "Tu drugstore a domicilio en Paraná",
@@ -31,7 +31,7 @@ export const SITE = {
   social: {
     instagram: "https://www.instagram.com/drugstore_elparacao/",
     facebook: "https://www.facebook.com/profile.php?id=61565241096755",
-    x: "",
+    x: "@nicohcardoh",
   },
 } as const;
 
