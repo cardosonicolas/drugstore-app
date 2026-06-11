@@ -20,25 +20,17 @@ export default function Icon() {
           borderRadius: 6,
         }}
       >
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 22 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          style={{
+            color: "white",
+            fontSize: 16,
+            fontWeight: 700,
+            fontFamily: "sans-serif",
+            lineHeight: 1,
+          }}
         >
-          <text
-            x="11"
-            y="17"
-            textAnchor="middle"
-            fill="white"
-            fontSize="16"
-            fontWeight="bold"
-            fontFamily="sans-serif"
-          >
-            EP
-          </text>
-        </svg>
+          EP
+        </span>
       </div>
     ),
     {

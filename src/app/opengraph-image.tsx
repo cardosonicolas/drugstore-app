@@ -42,25 +42,17 @@ export default function Image() {
               marginRight: 24,
             }}
           >
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 50 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              style={{
+                color: "white",
+                fontSize: 30,
+                fontWeight: 700,
+                fontFamily: "sans-serif",
+                lineHeight: 1,
+              }}
             >
-              <text
-                x="25"
-                y="36"
-                textAnchor="middle"
-                fill="white"
-                fontSize="30"
-                fontWeight="bold"
-                fontFamily="sans-serif"
-              >
-                EP
-              </text>
-            </svg>
+              EP
+            </span>
           </div>
           <div
             style={{

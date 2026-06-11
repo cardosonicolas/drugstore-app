@@ -20,25 +20,17 @@ export default function AppleTouchIcon() {
           borderRadius: 36,
         }}
       >
-        <svg
-          width="120"
-          height="120"
-          viewBox="0 0 120 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          style={{
+            color: "white",
+            fontSize: 72,
+            fontWeight: 700,
+            fontFamily: "sans-serif",
+            lineHeight: 1,
+          }}
         >
-          <text
-            x="60"
-            y="82"
-            textAnchor="middle"
-            fill="white"
-            fontSize="72"
-            fontWeight="bold"
-            fontFamily="sans-serif"
-          >
-            EP
-          </text>
-        </svg>
+          EP
+        </span>
       </div>
     ),
     {
