@@ -31,6 +31,7 @@ export const SITE = {
   social: {
     instagram: "https://www.instagram.com/drugstore_elparacao/",
     facebook: "https://www.facebook.com/profile.php?id=61565241096755",
+    x: "",
   },
 } as const;
 

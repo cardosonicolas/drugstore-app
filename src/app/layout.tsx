@@ -56,12 +56,23 @@ export const metadata: Metadata = {
     title: `${SITE.name} | Delivery 24 hs en Paraná`,
     description:
       "Bebidas, snacks, chocolates, cigarrillos y despensa a domicilio en Paraná. Pedí por WhatsApp y recibí en tu casa. Atendemos de 9:00 a 04:00.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} | Delivery 24 hs en Paraná`,
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    site: SITE.social.x || undefined,
     title: `${SITE.name} | Delivery en Paraná`,
     description:
       "Bebidas, snacks y despensa a domicilio en Paraná. Pedí por WhatsApp.",
+    images: ["/opengraph-image"],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE.url },
@@ -69,12 +80,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
     ],
     apple: "/apple-touch-icon.png",
-    other: [
-      { rel: "icon", url: "/icon.png", sizes: "32x32", type: "image/png" },
-    ],
   },
 };
 
